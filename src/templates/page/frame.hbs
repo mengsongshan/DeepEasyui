@@ -1,0 +1,50 @@
+<!--
+    手风琴是panel的集合。
+     关于手风琴展开高度的问题？
+        1、我们可以把手风琴和手风琴的panel都设置高度
+        2、我们可以把手风琴和手风琴的panel都是成自适应父容器的高度，即fit=true
+        3、我们可以不设置手风琴和手风琴panel的高度，让其根据内容自适应高度。
+    
+    关于panel的header和footer的问题?
+       1、我们可以默认使用panel的header，默认情况下panel没有footer
+       2、我们可以为panel指定header的元素选择器，我们自行为设置样式，自定义的header，我们可以控制它的样式，自定义的header只是panel将
+       header作为其子元素展示在头部，我们有更大的空间去控制它的header，可以说是绝对权限，footer也是同理。默认的header包含两个div
+       我们不能设置title的样式和工具栏的样式。
+    
+    关于panel的样式问题？
+       我们可以在data-options中传style,cls，去覆盖panel原有的样式。但style是一个对象类型，样式属性不能出现-，改为驼峰命名法。
+
+-->
+<div id="root" class="easyui-layout" style="width: 1366px;height:768px;">
+  <!--页头-->
+  <div data-options="region:'north'" style="height: 114px;border:false;"></div>
+  <!--菜单栏-->
+  <div data-options="region:'west',split:true,minWidth:180,collapsible:true,width:180">
+    <div id="t_menu" data-options="fit:false" class="easyui-accordion">
+      {{#each test as |t|}}
+      <div id="{{cid}}" data-options="header:'#a_header{{cid}}',style:{marginBottom:'0px'}" style="overflow:auto;padding:10px;background:#fafafa;">
+        <div id="a_header{{cid}}" style="text-align:center">
+          {{name}}
+        </div>
+        {{#if t.children}}
+        {{#each t.children as |ch|}}
+        <div class="menu_item">
+          <a id="{{ch.cid}}" style="cursor: pointer;display: inline-block;text-align: center;">
+            {{ch.name}}
+          </a>
+        </div>
+        {{/each}}
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <!--内容显示区-->
+  <div data-options="region:'center'">
+    <div id="tt" class="easyui-tabs" fit="true" border="false" plain="true" style="width: 1091px; height: 224px;">
+      <div title="Welcome" style="padding:20px;display:none;">
+        tab1
+      </div>
+    </div>
+  </div>
+</div>

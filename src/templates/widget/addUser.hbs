@@ -1,0 +1,22 @@
+<div id="dlg" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
+    <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
+        <h3>User Information</h3>
+        <div style="margin-bottom:10px">
+            <input name="id" class="easyui-textbox" required="true" label="ID:" style="width:100%">
+        </div>
+        <div style="margin-bottom:10px">
+            <input name="username" class="easyui-textbox" required="true" label="用户名:" style="width:100%">
+        </div>
+        <div style="margin-bottom:10px">
+            <input name="phoneNumber" class="easyui-numberbox" required="true" label="手机号码:" style="width:100%">
+        </div>
+        <div style="margin-bottom:10px">
+            <input name="createTime" class="easyui-datetimebox" required="true" validType="email" label="创建时间:" style="width:100%">
+        </div>
+    </form>
+</div>
+<div id="dlg-buttons">
+    <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')"
+        style="width:90px">Cancel</a>
+</div>

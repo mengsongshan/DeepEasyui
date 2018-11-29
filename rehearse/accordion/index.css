@@ -1,0 +1,11 @@
+.p_header {
+    padding: 5px;
+    /* overflow: auto; */
+    text-align: center;
+    /* height: 80px; */
+}
+
+.p_footer {
+    padding: 5px;
+    text-align: center
+}
